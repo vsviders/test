@@ -27,11 +27,13 @@ jobs:
           python-version: '3.12'
 
       - name: Configure Git
-        run: echo "machine github.com login anyone password ${{ secrets.GITHUB_TOKEN }}" > ~/.netrc
+        run: |
+          echo "machine github.com login anyone password ${{ secrets.GITHUB_TOKEN }}" > ~/.netrc
           git config --global --add safe.directory /github/workspace
           
       - name: Install system dependencies
-        run: sudo apt-get update
+        run: |
+          sudo apt-get update
           sudo apt-get install -y \
             libldap2-dev \
             libsasl2-dev \
