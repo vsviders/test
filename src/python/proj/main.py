@@ -1,1 +1,3 @@
-print("Hello World111")
+"""Main entry point for the proj application."""
+
+print("Hello World")
