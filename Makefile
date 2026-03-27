@@ -43,6 +43,11 @@ venv:
 	@$(PYTHON) -m venv $(VENV) && \
 		echo "To activate in your terminal, run: source $(VENV)/bin/activate" 
 
+install:
+	@$(PIP) install --upgrade autopep8 mypy
+	@[ -f requirements-dev.txt ] && $(PIP) install -r requirements-dev.txt || true
+
+    
 ## install-dev: Install development dependencies
 install-dev:
 	@$(PIP) install --upgrade black isort flake8 pylint ruff \
