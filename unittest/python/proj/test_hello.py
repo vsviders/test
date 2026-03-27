@@ -1,10 +1,23 @@
+"""Tests for the hello-world application module."""
+
+from contextlib import redirect_stdout
+import importlib
+import io
+import sys
 import unittest
 
-
 class MyTestCase(unittest.TestCase):
-    def test_prints_hello(self):
-        assert "Hello World" == "Hello World"
+    """Test behavior of the hello-world application."""
 
+    def test_import_prints_hello_world(self):
+        """Importing proj.main should print Hello World once."""
+        sys.modules.pop("proj.main", None)
+
+        output = io.StringIO()
+        with redirect_stdout(output):
+            importlib.import_module("proj.main")
+
+        self.assertEqual(output.getvalue().strip(), "Hello World")
 
 if __name__ == "__main__":
     unittest.main()
