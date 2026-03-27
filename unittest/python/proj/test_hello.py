@@ -1,10 +1,11 @@
 """Tests for the hello-world application module."""
 
-from contextlib import redirect_stdout
 import importlib
 import io
 import sys
 import unittest
+from contextlib import redirect_stdout
+
 
 class MyTestCase(unittest.TestCase):
     """Test behavior of the hello-world application."""
@@ -18,6 +19,7 @@ class MyTestCase(unittest.TestCase):
             importlib.import_module("proj.main")
 
         self.assertEqual(output.getvalue().strip(), "Hello World")
+
 
 if __name__ == "__main__":
     unittest.main()
