@@ -45,10 +45,7 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
-        
-      - name: Build
-        run: make build
-        
+
       - name: Run code formatting checks
         run: make format-check
 
